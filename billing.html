@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rasika's stationary</title>
+    <link rel="stylesheet" href="billing.css">
+</head>
+<body><center>
+    <div class="container">
+        <input type="radio" name="drink" value="tea" id="tea"/>Tea
+        <input type="radio" name="drink" value="coffee" id="coffee"/>Coffee
+        <input type="radio" name="drink" value="BadhamMilk" id="BadhamMilk"/>BadhamMilk
+        <input type="radio" name="drink" value="Milk" id="Milk"/>Milk<br><br>
+        <button onclick=add()>Add</button>
+        <button onclick=Total()>Total</button>
+        <p>Tea count :<span id="teacount">0</span></p>
+        <p>Coffee count :<span id="coffeecount">0</span></p>
+        <p>Badham milk count :<span id="BadhamMilkcount">0</span></p>
+        <p>Milk count :<span id="Milkcount">0</span></p>
+        <p>Total :<span id="bill">0</span></p>
+    </div>
+    <script>
+        let teacount=0;
+        let coffeecount=0;
+        let BadhamMilkcount=0;
+        let Milkcount=0;
+
+        let tearate=15;
+        let coffeerate=15;
+        let BadhamMilkrate=20;
+        let Milkrate=10;
+
+function add(){
+    const selectedDrink=document.querySelector('input[name="drink"]:checked').value;
+     if(selectedDrink==='tea'){
+        const drinktype=selectedDrink.valule;
+        teacount++;
+        document.getElementById('teacount').textContent=teacount;
+     }
+
+    else if(selectedDrink==='coffee'){
+        const drinktype=selectedDrink.valule;
+        coffeecount++; 
+        document.getElementById('coffeecount').textContent=coffeecount;
+    }
+    else if(selectedDrink==='BadhamMilk'){
+        const drinktype=selectedDrink.valule;
+        BadhamMilkcount++;
+        document.getElementById('BadhamMilkcount').textContent=BadhamMilkcount;
+    }
+            
+    else if(selectedDrink==='Milk'){
+        const drinktype=selectedDrink.valule;
+        Milkcount++;   
+        document.getElementById('Milkcount').textContent=Milkcount;
+            
+    }
+ }
+  function Total()
+  {
+            let Total=0;    
+            Total +=parseInt(document.getElementById("teacount").textContent) * tearate;
+            Total +=parseInt(document.getElementById("coffeecount").textContent) * coffeerate;
+            Total +=parseInt(document.getElementById("BadhamMilkcount").textContent) * BadhamMilkrate;
+            Total +=parseInt(document.getElementById("Milkcount").textContent) * Milkrate;
+
+            document.getElementById("bill").innerHTML=Total;
+                
+    }
+</script>
+</body></center>
+</html>
